@@ -1,0 +1,19 @@
+/* $Id$ */
+
+TODO
+==========================================
+- scope out effects with LDAP module, esp. password changes if supported by the LDAP module.
+- install support for postgres 
+- allowing whitespace in passwords in relation to the character based constraints needs to be
+  thought out more carefully.
+- add index to password_policy_users table
+- Notification feature:
+	- allow for forced prompts of password changes -- change passwords every X days
+	- email out notification 5 days (4, 3, 2, 1) before forced password change
+	- on forced password change, generate random password and mail out, with URL login to be able to change
+	- configuration screen to set password time-out value and redirect to user maintenance screen after user authentication if password has expired
+	- configuration option for e-mail notification, number of notifications and time intervals between notifications. Add cron job to check password expiry
+	- after Y notifiation attempts where the password is incorrect, set the user account to "blocked" and email the user
+- support for password policies per user role allowing for increasing password security based on user role type.
+- would be nice to have a dictionary lookup constraint 
+- would be nice to have a username constraint to avoid passwords similar to a user account name.
