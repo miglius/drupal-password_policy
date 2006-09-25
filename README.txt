@@ -27,5 +27,5 @@ See INSTALL.txt
 
 Author
 ==========================================
-David Ayre <dave at ayre dot com>
+David Ayre <drupal at ayre dot ca>
 Sponsored by Bryght <http://www.bryght.com>
