@@ -25,6 +25,10 @@ Current constraints include:
     * Uppercase constraint
     * Lowercase constraint
     * Punctuation constraint
+    * Character types constraint (allows the adminstrator to set the minimum 
+      number of character types required, but without actually dictating which 
+      ones must be used.  Example - Windows requires any 3 (user's choice) of 
+      uppercase, lowercase, numbers, or punctuation.
     * History constraint (checks hashed password against a 
       collection of users previous hashed passwords looking for 
       recent duplicates)
