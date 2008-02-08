@@ -1,0 +1,44 @@
+<?php
+// $Id$
+/**
+ * @file
+ * Password policy constraint callbacks.
+ */
+
+//////////////////////////////////////////////////////////////////////////////
+// Constraint API
+
+/**
+ * Description of the constraint.
+ */
+function password_policy_constraint_length_description() {
+  return array('name' => t('Length'), 'description' => t('Password must be longer than the specified minimum length.'));
+}
+
+/**
+ * Error message of the constraint.
+ */
+function password_policy_constraint_length_error($constraint) {
+  return t('Password must be a minimum of %number '. format_plural($constraint, t('character'), t('characters')) .' in length.', array('%number' => $constraint));
+}
+
+/**
+ * Password validation.
+ */
+function password_policy_constraint_length_validate($password, $constraint, $uid) {
+  $length = strlen($password);
+  return $length >= $constraint;
+}
+
+/**
+ * Javascript portion.
+ */
+function password_policy_constraint_length_js($constraint, $uid) {
+  $s = '';
+  $s .= "  if (!value.length || value.length<$constraint) {\n";
+  $s .= "    strength=\"low\";\n";
+  $s .= "    msg.push(translate.constraint_length);\n";
+  $s .= "  }\n";
+  return $s;
+}
+
