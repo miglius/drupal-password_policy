@@ -115,7 +115,7 @@ function password_policy_admin_list() {
     $form[$name]['pid'] = array('#value' => $pid);
     $form[$name]['view'] = array('#value' => l(t('view'), 'admin/settings/password_policy/'. $pid));
     $form[$name]['edit'] = array('#value' => l(t('edit'), 'admin/settings/password_policy/'. $pid .'/edit'));
-    $form[$name]['delete'] = array('#value' => l(t('delete'), 'admin/settings/password_policy/'. $pid .'/delete'));
+    $form[$name]['delete'] = array('#value' => l(t('delete'), 'admin/settings/password_policy/delete/'. $pid));
   }
   $form['default'] = array('#type' => 'radios', '#options' => $options, '#default_value' => $default_pid);
   $form['submit'] = array('#type' => 'submit', '#value' => t('Set default policy'));
@@ -160,43 +160,9 @@ function _password_policy_admin_clear_default() {
 }
 
 /**
- * Custom theme for rendering a radio list of defined policies.
- * This layout is based on a similar layout found in the "filter" module.
- *
- * @ingroup themeable
- */
-function theme_password_policy_admin_list($form) {
-  $rows = array();
-  foreach ($form as $name => $element) {
-    if (isset($element['edit']) && is_array($element['edit'])) {
-      $rows[] = array(
-        drupal_render($form['default'][$element['pid']['#value']]),
-        check_plain($name),
-        drupal_render($form[$name]['created']),
-        drupal_render($form[$name]['view']),
-        drupal_render($form[$name]['edit']),
-        drupal_render($form[$name]['delete'])
-      );
-      unset($form[$name]);
-    }
-  }
-  if (empty($rows)) {
-    $rows[] = array(array('data' => t('No policies defined.'), 'colspan' => 5));
-    unset($form['submit']);
-    unset($form['clear']);
-  }
-  $header = array(t('Default'), array('data' => t('Name'), 'field' => 'name', 'sort' => 'asc'), t('Enabled'), array('data' => t('Operations'), 'colspan' => 3));
-  $output = theme('table', $header, $rows);
-  $output .= drupal_render($form);
-
-  return $output;
-}
-
-/**
  * The default view for the password policy.
  */
 function password_policy_admin_view($policy) {
-
   $output = check_plain($policy['description']); 
   $header = array(t('Name'), t('Constraint'));
   $rows = array();
@@ -300,7 +266,7 @@ function password_policy_admin_form_submit($form, &$form_state) {
   $op = $form_state['values']['op'];
 
   if ($op == t('Delete')) {
-    drupal_goto('admin/settings/password_policy/'. $form_state['values']['pid'] .'/delete');
+    drupal_goto('admin/settings/password_policy/delete/'. $form_state['values']['pid']);
   }
 
   $policy = array();
@@ -332,10 +298,15 @@ function password_policy_admin_form_submit($form, &$form_state) {
  * Confirmation form for the deletion of a password policy.  Deletion takes place
  * in password_policy_admin_delete_submit().
  */
-function password_policy_admin_delete($form_state, $policy) {
-  $form['pid'] = array('#type' => 'hidden', '#value' => $policy['pid']);
+function password_policy_admin_delete($form_state, $pid) {
+  if (is_numeric($pid) && $policy = _password_policy_load_policy_by_pid($pid)) {
+    $form['pid'] = array('#type' => 'hidden', '#value' => $policy['pid']);
 
-  return confirm_form($form, t('Are you sure you want to delete the policy %name?', array('%name' => $policy['name'])), 'admin/settings/password_policy/list', t('This action cannot be undone.'), t('Delete'), t('Cancel'));
+    return confirm_form($form, t('Are you sure you want to delete the policy %name?', array('%name' => $policy['name'])), 'admin/settings/password_policy/list', t('This action cannot be undone.'), t('Delete'), t('Cancel'));
+  }
+  else {
+    drupal_not_found();
+  }
 }
 
 /**
