@@ -22,19 +22,19 @@ function password_policy_admin_settings() {
   $form['expiration']['password_policy_admin'] = array(
     '#type' => 'checkbox',
     '#title' => t('Admin (UID=1) password expires.'),
-    '#default_value' => variable_get('password_policy_admin', false),
+    '#default_value' => PASSWORD_POLICY_ADMIN,
     '#description' => t('Admin account password will obey expiration policy.'),
   );
   $form['expiration']['password_policy_begin'] = array(
     '#type' => 'radios',
     '#title' => t('Beginning of password expirations'),
-    '#default_value' => variable_get('password_policy_begin', 0),
+    '#default_value' => PASSWORD_POLICY_BEGIN,
     '#options' => array('0' => t('After expiration time from setting a default policy (all passwords are valid during the expiration time from setting the default policy, and after that older than expiration time passwords expire).'), '1' => t('Setting a default policy (passwords older than expiration time expire after setting the default policy, retroactive behaviour).')),
   );
   $form['expiration']['password_policy_block'] = array(
     '#type' => 'radios',
     '#title' => t('Blocking expired accounts'),
-    '#default_value' => variable_get('password_policy_block', 0),
+    '#default_value' => PASSWORD_POLICY_BLOCK,
     '#options' => array('0' => t('Expired accounts are blocked. Only administrators can unblock them.'), '1' => t('The user with expired account is not blocked, but sent to a change password page. If the password is not changed, the account is blocked and the user cannot login again.')),
   );
 
@@ -98,7 +98,7 @@ function password_policy_admin_settings_submit($form, &$form_state) {
 }
 
 /**
- * The list of the password policies. 
+ * The list of the password policies.
  */
 function password_policy_admin_list() {
   $header = array(t('Default'), array('data' => t('Name'), 'field' => 'name', 'sort' => 'asc'), t('Enabled'), array('data' => t('Operations'), 'colspan' => 3));
@@ -163,7 +163,7 @@ function _password_policy_admin_clear_default() {
  * The default view for the password policy.
  */
 function password_policy_admin_view($policy) {
-  $output = check_plain($policy['description']); 
+  $output = check_plain($policy['description']);
   $header = array(t('Name'), t('Constraint'));
   $rows = array();
   if (!empty($policy['expiration'])) {
@@ -185,7 +185,7 @@ function password_policy_admin_view($policy) {
 }
 
 /**
- * Form display for new or to be edited password policies.  
+ * Form display for new or to be edited password policies.
  */
 function password_policy_admin_form($form_state, $policy = NULL) {
   $form['policy']['name'] = array(
@@ -226,7 +226,7 @@ function password_policy_admin_form($form_state, $policy = NULL) {
     '#collapsible' => TRUE,
     '#collapsed' => FALSE
   );
-  
+
   global $_password_policy;
   foreach ($_password_policy as $constraint) {
     $desc = _password_policy_constraint_description($constraint);
@@ -234,12 +234,12 @@ function password_policy_admin_form($form_state, $policy = NULL) {
       '#type' => 'textfield',
       '#size' => 5,
       '#default_value' => $policy['policy'][$constraint],
-      '#maxlength' => 2, 
+      '#maxlength' => 2,
       '#title' => $desc['name'],
       '#description' => $desc['description'],
     );
   }
-	
+
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => is_array($policy) ? t('Save') : t('Create'),
@@ -255,7 +255,7 @@ function password_policy_admin_form($form_state, $policy = NULL) {
       '#value' => $policy['pid'],
     );
   }
-	
+
   return $form;
 }
 

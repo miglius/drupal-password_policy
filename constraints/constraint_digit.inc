@@ -26,10 +26,11 @@ function password_policy_constraint_digit_error($constraint) {
  * Password validation.
  */
 function password_policy_constraint_digit_validate($password, $constraint, $uid) {
-  $length = strlen($password);
+  $length = drupal_strlen($password);
   $num = 0;
   for ($i = 0; $i < $length; $i++) {
-    if (ctype_digit($password[$i])) { $num++; }
+    if (ctype_digit($password[$i]))
+      $num++;
   }
   return $num >= $constraint;
 }

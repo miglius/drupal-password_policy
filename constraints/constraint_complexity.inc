@@ -11,22 +11,22 @@
 /**
  * Description of the constraint.
  */
-function password_policy_constraint_type_description() {
-  return array('name' => t('Type'), 'description' => t('Password must contain the specified minimum number of character types (lowercase, uppercase, digit or punctuation).'));
+function password_policy_constraint_complexity_description() {
+  return array('name' => t('Complexity'), 'description' => t('Password must contain the specified minimum number of character types (lowercase, uppercase, digit or punctuation).'));
 }
 
 /**
  * Error message of the constraint.
  */
-function password_policy_constraint_type_error($constraint) {
+function password_policy_constraint_complexity_error($constraint) {
   return t('Password must contain a minimum of %number different '. format_plural($constraint, t('type'), t('types')) .' (lowercase, uppercase, digit or punctuation) of characters.', array('%number' => $constraint));
 }
 
 /**
  * Password validation.
  */
-function password_policy_constraint_type_validate($password, $constraint, $uid) {
-  $length = strlen($password);
+function password_policy_constraint_complexity_validate($password, $constraint, $uid) {
+  $length = drupal_strlen($password);
   $num = 0;
   $upper = 0;
   $lower = 0;
@@ -35,7 +35,7 @@ function password_policy_constraint_type_validate($password, $constraint, $uid) 
   for ($i = 0; $i < $length; $i++) {
     if (ctype_upper($password[$i])) {
       $upper = 1;
-    } 
+    }
     else if (ctype_lower($password[$i])) {
       $lower = 1;
     }
@@ -53,7 +53,7 @@ function password_policy_constraint_type_validate($password, $constraint, $uid) 
 /**
  * Javascript portion.
  */
-function password_policy_constraint_type_js($constraint, $uid) {
+function password_policy_constraint_complexity_js($constraint, $uid) {
   $s = '';
   $s .= "  var i=0;\n";
   $s .= "  var num=0;\n";
@@ -83,7 +83,7 @@ function password_policy_constraint_type_js($constraint, $uid) {
   $s .= "  num=upper+lower+digit+punct\n";
   $s .= "  if (num<$constraint) {\n";
   $s .= "    strength=\"low\";\n";
-  $s .= "    msg.push(translate.constraint_type);\n";
+  $s .= "    msg.push(translate.constraint_complexity);\n";
   $s .= "  }\n";
   return $s;
 }

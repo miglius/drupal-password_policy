@@ -26,7 +26,7 @@ function password_policy_constraint_length_error($constraint) {
  * Password validation.
  */
 function password_policy_constraint_length_validate($password, $constraint, $uid) {
-  $length = strlen($password);
+  $length = drupal_strlen($password);
   return $length >= $constraint;
 }
 

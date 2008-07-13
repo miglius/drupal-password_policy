@@ -1,0 +1,646 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  password_policy.admin.inc,v 1.2 2008/02/10 16:35:40 miglius
+#  password_policy.theme.inc,v 1.1 2008/02/10 16:35:40 miglius
+#  password_policy.module,v 1.6 2008/05/17 08:31:06 miglius
+#  password_policy.info,v 1.2 2008/02/10 16:35:40 miglius
+#  constraint_username.inc,v 1.1 2008/02/08 17:17:14 miglius
+#  password_policy.install,v 1.3 2008/02/10 16:35:40 miglius
+#  constraint_alphanumeric.inc,v 1.1 2008/02/08 17:17:14 miglius
+#  constraint_length.inc,v 1.1 2008/02/08 17:17:14 miglius
+#  constraint_lowercase.inc,v 1.1 2008/02/08 17:17:14 miglius
+#  constraint_punctuation.inc,v 1.1 2008/02/08 17:17:14 miglius
+#  constraint_uppercase.inc,v 1.1 2008/02/08 17:17:14 miglius
+#  constraint_digit.inc,v 1.1 2008/02/08 17:17:14 miglius
+#  constraint_history.inc,v 1.1 2008/02/08 17:17:14 miglius
+#  constraint_letter.inc,v 1.1 2008/02/08 17:17:14 miglius
+#  constraint_type.inc,v 1.1 2008/02/08 17:17:14 miglius
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal Password Policy\n"
+"POT-Creation-Date: 2008-07-12 13:13+0200\n"
+"PO-Revision-Date: 2008-07-12 17:35+0100\n"
+"Last-Translator: Frank Tartler <frank.tartler@googlemail.com>\n"
+"Language-Team: Frank Tartler <frank.tartler@googlemail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: password_policy.admin.inc:18
+msgid "Expiration Settings"
+msgstr "Ablauf-Einstellungen"
+
+#: password_policy.admin.inc:24
+msgid "Admin (UID=1) password expires."
+msgstr "Passwort des Administrators (Benutzer-ID=1) läuft ab."
+
+#: password_policy.admin.inc:26
+msgid "Admin account password will obey expiration policy."
+msgstr "Das Passwort des Administrator-Kontos wird durch die Ablauf-Richtlinie erfasst."
+
+#: password_policy.admin.inc:30
+msgid "Beginning of password expirations"
+msgstr "Beginn des Ablaufens von Passwörtern"
+
+#: password_policy.admin.inc:32
+msgid "After expiration time from setting a default policy (all passwords are valid during the expiration time from setting the default policy, and after that older than expiration time passwords expire)."
+msgstr "Nach der Ablauf-Zeit ab Setzen einer Passwort-Richtlinie (alle Passwörter sind während der Ablauf-Zeit ab Setzen der Standard-Richtlinie gültig, danach laufen Passwörter ab, die älter als die Ablauf-Zeit sind)."
+
+#: password_policy.admin.inc:32
+msgid "Setting a default policy (passwords older than expiration time expire after setting the default policy, retroactive behaviour)."
+msgstr "Setzen einer Standard-Richtlinie (Passwörter, die älter als die Ablauf-Zeit sind, laufen nach dem Setzen der Standard-Richtlinie ab, rückwirkendes Verhalten)."
+
+#: password_policy.admin.inc:36
+msgid "Blocking expired accounts"
+msgstr "Blockieren abgelaufener Konten"
+
+#: password_policy.admin.inc:38
+msgid "Expired accounts are blocked. Only administrators can unblock them."
+msgstr "Abgelaufene Konten werden geblockt. Nur Administratoren können die Blockade aufheben."
+
+#: password_policy.admin.inc:38
+msgid "The user with expired account is not blocked, but sent to a change password page. If the password is not changed, the account is blocked and the user cannot login again."
+msgstr "Der Benutzer mit einem abgelaufenen Passwort wird nicht geblockt sondern zu einer Seite zum Ändern des Passworts weitergeleitet. Wenn das Passwort nicht geändert wird, wird das Konto geblockt und der Benutzer kann sich nicht erneut anmelden."
+
+#: password_policy.admin.inc:44
+msgid "E-mail notification settings"
+msgstr "E-Mail-Benachrichtigungs-Einstellungen"
+
+#: password_policy.admin.inc:50
+msgid "Subject of warning e-mail"
+msgstr "Betreff der Warnungs-E-Mail"
+
+#: password_policy.admin.inc:53
+msgid "Customize the subject of the warning e-mail message, which is sent to remind of password expiration."
+msgstr "Den Betreff der Warnungs-E-Mail, die zur Erinnerung an das Ablaufen des Passwortes gesendet wird, anpassen."
+
+#: password_policy.admin.inc:53;60
+msgid "Available variables are:"
+msgstr "Verfügbare Variablen sind:"
+
+#: password_policy.admin.inc:57
+msgid "Body of warning e-mail"
+msgstr "Textkörper der Warnungs-E-Mail"
+
+#: password_policy.admin.inc:60
+msgid "Customize the body of the warning e-mail message, which is sent to remind of password expiration."
+msgstr "Den Textkörper der Warnungs-E-Mail, die zur Erinnerung an das Ablaufen des Passwortes gesendet wird, anpassen."
+
+#: password_policy.admin.inc:65
+msgid "Save configuration"
+msgstr "Konfiguration speichern"
+
+#: password_policy.admin.inc:69
+msgid "Reset to defaults"
+msgstr "Zurücksetzen"
+
+#: password_policy.admin.inc:87
+msgid "The configuration options have been saved."
+msgstr "Die Einstellungen wurden gespeichert."
+
+#: password_policy.admin.inc:95
+msgid "The configuration options have been reset to their default values."
+msgstr "Die Einstellungen wurden auf ihre Standardwerte zurückgesetzt."
+
+#: password_policy.admin.inc:104
+#: password_policy.theme.inc:38
+msgid "Default"
+msgstr "Standard"
+
+#: password_policy.admin.inc:104;167;193
+#: password_policy.theme.inc:38
+msgid "Name"
+msgstr "Name"
+
+#: password_policy.admin.inc:104
+#: password_policy.theme.inc:38
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: password_policy.admin.inc:104
+#: password_policy.theme.inc:38
+msgid "Operations"
+msgstr "Operationen"
+
+#: password_policy.admin.inc:116
+msgid "view"
+msgstr "Anzeigen"
+
+#: password_policy.admin.inc:117;285;291
+#: password_policy.module:270;429
+msgid "edit"
+msgstr "Bearbeiten"
+
+#: password_policy.admin.inc:118
+msgid "delete"
+msgstr "Löschen"
+
+#: password_policy.admin.inc:121
+msgid "Set default policy"
+msgstr "Standard-Richtlinie einstellen"
+
+#: password_policy.admin.inc:122
+msgid "Clear default policy"
+msgstr "Standard-Richtlinie löschen"
+
+#: password_policy.admin.inc:135
+msgid "No policy is active, all user passwords will be accepted (Drupal default)."
+msgstr "Es ist keine Richtlinie aktiv, alle Passwörter werden akzeptiert (Drupal Standard)."
+
+#: password_policy.admin.inc:145
+msgid "%name has been set as the default password policy."
+msgstr "%name wurd als Standard-Passwort-Richtlinie definiert."
+
+#: password_policy.admin.inc:149
+msgid "Default password policy was not set."
+msgstr "Standard-Passwort-Richtlinie wurde nicht gesetzt."
+
+#: password_policy.admin.inc:167
+msgid "Constraint"
+msgstr "Einschränkung"
+
+#: password_policy.admin.inc:170;205
+msgid "Expiration"
+msgstr "Ablauf"
+
+#: password_policy.admin.inc:173
+msgid "Warning"
+msgstr "Warnung"
+
+#: password_policy.admin.inc:180
+#: password_policy.theme.inc:34
+msgid "No policies defined."
+msgstr "Keine Richtlinien definiert"
+
+#: password_policy.admin.inc:200
+msgid "Description"
+msgstr "Beschreibung"
+
+#: password_policy.admin.inc:210
+msgid "Password Expiration"
+msgstr "Ablaufen des Passworts"
+
+#: password_policy.admin.inc:214
+msgid "The passwords will expire after this number of days. The users with expired passwords will be blocked. Leaving this field empty won't put any password expiration constraints."
+msgstr "Das Passwort wird nach dieser Anzahl Tagen ablaufen. Benutzer mit abgelaufenen Passwörtern werden geblockt. Das Leerlassen dieses Feldes stellt keine Einschränkung bezüglich des Ablaufens von Passwörtern ein."
+
+#: password_policy.admin.inc:217
+msgid "Password Expiration Warning"
+msgstr "Passwort-Ablauf-Warnungen"
+
+#: password_policy.admin.inc:220
+msgid "The comma separated list of days. The warning about expiration of the password will be sent out on those days before the expiration. Leaving this field empty won't send out or display any warnings."
+msgstr "Eine durch Kommata getrennte Liste von Tagen. Die Warnung über das Ablaufen des Passwortes wird an diesen Tagen vor dem Ablaufen gesendet. Bei Leerlassen dieses Feldes werden keine Warnungen gesendet oder angezeigt."
+
+#: password_policy.admin.inc:225
+msgid "Constrains"
+msgstr "Anforderungen"
+
+#: password_policy.admin.inc:245
+msgid "Save"
+msgstr "Speichern"
+
+#: password_policy.admin.inc:245
+msgid "Create"
+msgstr "Erstellen"
+
+#: password_policy.admin.inc:251;268;305
+#: password_policy.module:122
+msgid "Delete"
+msgstr "Löschen"
+
+#: password_policy.admin.inc:284
+msgid "Policy %name has been updated."
+msgstr "Richtlinie %name wurde aktualisiert."
+
+#: password_policy.admin.inc:290
+msgid "Policy %name has been created."
+msgstr "Richtlinie %name wurde erstellt."
+
+#: password_policy.admin.inc:305
+msgid "Are you sure you want to delete the policy %name?"
+msgstr "Soll die Richtlinie %name wirklich gelöscht werden?"
+
+#: password_policy.admin.inc:305
+msgid "This action cannot be undone."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: password_policy.admin.inc:305
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: password_policy.admin.inc:320
+msgid "Password policy %policy was deleted."
+msgstr "Die Passwort-Richtlinie %policy wurde gelöscht."
+
+#: password_policy.admin.inc:285;291;321
+#: password_policy.module:270;406;429;709;0
+msgid "password_policy"
+msgstr "password_policy"
+
+#: password_policy.admin.inc:285
+msgid "Policy %name updated."
+msgstr "Die Richtlinie %name wurde aktualisiert."
+
+#: password_policy.admin.inc:291
+msgid "New policy %name created."
+msgstr "Die Richtlinie %name wurde erstellt."
+
+#: password_policy.admin.inc:321
+msgid "Policy %name was deleted."
+msgstr "Die Richtlinie %name wurde gelöscht."
+
+#: password_policy.module:22
+#: password_policy.info:0
+msgid "The password policy module allows you to enforce a specific level of password complexity for the user passwords on the system."
+msgstr "Das 'Password Policy'-Modul (Passwort-Richtlinien) ermöglicht, eine bestimmte Passwort-Komplexität für Benutzerpasswörter auf dem System zu erzwingen."
+
+#: password_policy.module:214
+msgid "Your password has not met the following %requirements:"
+msgstr "Ihr Passwort hat die folgende(n) %requirements nicht erfüllt:"
+
+#: password_policy.module:214
+msgid "requirement"
+msgstr "Anforderung"
+
+#: password_policy.module:214
+msgid "requirements"
+msgstr "Anforderungen"
+
+#: password_policy.module:279
+msgid "Your password has expired. You have to change it now or you won't be able to login again."
+msgstr "Ihr Passwort ist abgelaufen. Sie müssen es jetzt ändern, sonst können Sie sich nicht mehr anmelden."
+
+#: password_policy.module:287
+msgid "Your password will expire in less than %number %days. Please change it."
+msgstr "Ihr Passwort läuft in weniger als %number %days aus. Ändern Sie es bitte."
+
+#: password_policy.module:287
+msgid "day"
+msgstr "Tag"
+
+#: password_policy.module:287
+msgid "days"
+msgstr "Tage"
+
+#: password_policy.module:343
+msgid "Password quality:"
+msgstr "Passwort-Qualität:"
+
+#: password_policy.module:344
+msgid "Bad"
+msgstr "Schlecht"
+
+#: password_policy.module:345
+msgid "Medium"
+msgstr "Mittel"
+
+#: password_policy.module:346
+msgid "Good"
+msgstr "Gut"
+
+#: password_policy.module:347
+msgid "The password does not include enough variation to be secure."
+msgstr "Das Passwort beinhaltet nicht genug Variationen um sicher zu sein."
+
+#: password_policy.module:348
+msgid "Yes"
+msgstr "Ja"
+
+#: password_policy.module:349
+msgid "No"
+msgstr "Nein"
+
+#: password_policy.module:350
+msgid "Passwords match:"
+msgstr "Passwörter stimmen überein:"
+
+#: password_policy.module:463
+#: constraints/constraint_username.inc:15
+msgid "Username"
+msgstr "Benutzername"
+
+#: password_policy.module:464
+msgid "Blocked"
+msgstr "Gesperrt"
+
+#: password_policy.module:465
+msgid "Unblocked"
+msgstr "Nicht geblockt"
+
+#: password_policy.module:466
+msgid "Action"
+msgstr "Aktion"
+
+#: password_policy.module:473
+msgid "unblock"
+msgstr "entsperren"
+
+#: password_policy.module:477
+msgid "No entries"
+msgstr "Keine Einträge"
+
+#: password_policy.module:513
+msgid "Password expiration warning for !username at !site"
+msgstr "Passwort-Ablauf-Warnung für !username auf !site"
+
+#: password_policy.module:515
+msgid ""
+"!username,\n"
+"\n"
+"Your password at !site will expire in less than !days_left day(s).\n"
+"\n"
+"Please go to !edit_uri to change your password."
+msgstr ""
+"!username,\n"
+"\n"
+"Ihr Passwort auf !site läuft in weniger als !days_left Tag(en) ab).\n"
+"\n"
+"Rufen Sie !edit_uri auf um Ihr Passwort zu ändern."
+
+#: password_policy.module:711
+msgid "The user %name has been unblocked."
+msgstr "Der Benutzer %name wurde entsperrt."
+
+#: password_policy.module:270;429
+msgid "Password for user %name has expired."
+msgstr "Passwort für Benutzer %name ist abgelaufen."
+
+#: password_policy.module:406
+msgid "Password expiration warning mailed to %username at %email."
+msgstr "Passwort-Ablauf-Warnung gesendet an %username unter %email."
+
+#: password_policy.module:709
+msgid "Password reset instructions mailed to %name at %email."
+msgstr "Anweisungen zum Zurücksetzen des Passwortes gesendet an %username unter %email."
+
+#: password_policy.module:62
+msgid "unblock expired accounts"
+msgstr "Abgelaufene Konten entsperren"
+
+#: password_policy.module:70
+msgid "Password policies"
+msgstr "Passwort-Richtlinien"
+
+#: password_policy.module:71
+msgid "Configures policies for user account passwords."
+msgstr "Konfiguriert Richtlinien für Benutzerkonten-Passwörter."
+
+#: password_policy.module:78
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: password_policy.module:82
+msgid "List"
+msgstr "Alle anzeigen"
+
+#: password_policy.module:91
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: password_policy.module:109
+msgid "View"
+msgstr "Anzeigen"
+
+#: password_policy.module:113
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: password_policy.module:130
+msgid "Expired accounts"
+msgstr "Abgelaufene Konten"
+
+#: password_policy.module:131
+msgid "Lists all expired accounts."
+msgstr "Zeigt alle abgelaufenen Konten"
+
+#: password_policy.module:137
+msgid "Unblock"
+msgstr "Entsperren"
+
+#: password_policy.install:15
+msgid "Password policy module successfully installed. Please review the available <a href=\"@settings\">configuration settings</a>."
+msgstr "'Password Policy'-Modul erfolgreich installiert. Beachten Sie die verfügbaren <a href=\"@settings\">Konfigurations-Einstellungen</a>."
+
+#: password_policy.install:46
+msgid "Stores password policies."
+msgstr "Speichert Passwort-Richtlinien"
+
+#: password_policy.install:49
+msgid "Primary Key: Unique password policy ID."
+msgstr "Primärer Schlüssel: Eindeutige Passwort-Richtlinien-ID"
+
+#: password_policy.install:54
+msgid "The name of the policy."
+msgstr "Der Name der Richtlinie"
+
+#: password_policy.install:61
+msgid "The description of the policy."
+msgstr "Die Beschreibung der Richtlinie."
+
+#: password_policy.install:67
+msgid "Whether the policy is enabled."
+msgstr "Ob die Richtlinie aktiv ist"
+
+#: password_policy.install:74
+msgid "The policy's serialized data."
+msgstr "Die Daten der Richtlinie."
+
+#: password_policy.install:81;118
+msgid "Timestamp for when the policy was created."
+msgstr "Zeitstempel, wann die Richtlinie erstellt wurde."
+
+#: password_policy.install:87
+msgid "The passwords will expire after this number of days."
+msgstr "Die Passwörter werden nach dieser Anzahl Tagen ablaufen."
+
+#: password_policy.install:91
+msgid "Comma separated list of days when warning is sent out."
+msgstr "Komma-getrennte liste von Tagen, zu denen Warnungen versandt werden."
+
+#: password_policy.install:99
+msgid "Stores users' old password hashes."
+msgstr "Speichert Hashes der alten Passwörter der Benutzer"
+
+#: password_policy.install:102
+msgid "Primary Key: Unique password policy users ID."
+msgstr ""
+
+#: password_policy.install:107;134
+msgid "User's {users}.uid."
+msgstr ""
+
+#: password_policy.install:112
+msgid "User's password (md5 hash)."
+msgstr "Password der Benutzers (MD5 Hash-Wert)."
+
+#: password_policy.install:126
+msgid "Stores users password expiration data."
+msgstr "Speichert Passwort-Ablauf-Daten der Benutzer."
+
+#: password_policy.install:129
+msgid "Primary Key: Unique password policy expirations ID."
+msgstr ""
+
+#: password_policy.install:140
+msgid "Timestamp for when the warning was shown."
+msgstr "Zeitstempel, wann die Warnung gezeigt wurde."
+
+#: password_policy.install:144
+msgid "Timestamp for when the user was blocked."
+msgstr "Zeitstempel, wann der Benutzer gesperrt wurde."
+
+#: password_policy.install:148
+msgid "Timestamp for when the user was unblocked."
+msgstr "Zeitstempel, wann der Benutzer entsperrt wurde."
+
+#: password_policy.info:0
+msgid "Password Policy"
+msgstr "Passwort-Richtlinie"
+
+#: password_policy.info:0
+msgid "Other"
+msgstr "Sonstige"
+
+#: constraints/constraint_alphanumeric.inc:15
+msgid "Alphanumeric"
+msgstr "Alphanumerisch"
+
+#: constraints/constraint_alphanumeric.inc:15
+msgid "Password must contain the specified minimum number of alphanumeric (letters or numbers) characters."
+msgstr "Das Passwort muss mindestens die angegebene Anzahl alphanumerischer Zeichen (Buchstaben oder Ziffern) enthalten."
+
+#: constraints/constraint_alphanumeric.inc:22;22
+#: constraints/constraint_length.inc:22
+#: constraints/constraint_lowercase.inc:22
+#: constraints/constraint_punctuation.inc:22;22
+#: constraints/constraint_uppercase.inc:22
+msgid "characters"
+msgstr "Zeichen"
+
+#: constraints/constraint_digit.inc:15
+msgid "Digit"
+msgstr "Ziffern"
+
+#: constraints/constraint_digit.inc:15
+msgid "Password must contain the specified minimum number of digits."
+msgstr "Das Passwort muss mindestens die angegebene Anzahl Ziffern enthalten."
+
+#: constraints/constraint_digit.inc:22
+msgid "digit"
+msgstr "Ziffer"
+
+#: constraints/constraint_digit.inc:22
+msgid "digits"
+msgstr "Ziffern"
+
+#: constraints/constraint_history.inc:15
+msgid "History"
+msgstr "Historie"
+
+#: constraints/constraint_history.inc:15
+msgid "Password must not match any of the user's previous X passwords."
+msgstr "Das Passwort darf nicht mit einem der letzten n Passwörtern übereinstimmen."
+
+#: constraints/constraint_history.inc:15
+msgid "Note: "
+msgstr "Hinweis:"
+
+#: constraints/constraint_history.inc:15
+msgid "This constraint can only compare a new password with the previous passwords recorded since the password policy module was enabled.  For example, if the number of previous passwords is set to 3, the module may have only recorded 2 password changes since the module was enabled.  If the recorded password history is not large enough to support the constraint history size, the history size for the constraint will be reduced (temporarily during the constraint check) to match the available recorded history. Also note that a history size of 1 means that the user is unable to change their password to their current password.  This can be useful in certain situations, but a setting of 2+ will likely be more useful."
+msgstr "Diese Bedingung kann neue Passwörter nur mit den früheren Passwörtern vergleichen, die seit Aktivierung des Passwort-Richtlinien-Moduls aufgezeichnet wurden. Wenn zum Beispiel die Anzahl vorheriger Passwörter auf 3 gesetzt ist, hat das Modul möglicherweise erst 2 Passwortänderungen aufgezeichnet. Wenn die aufgezeichnete Passwort-Historie nicht groß genug ist, um die vorgegebene Historiengröße der Bedingung zu erfüllen, wird die Bedingung (vorübergehend während der Prüfung der Bedingung) auf den Wert verfügbarer Einträge zurückgesetzt. Zu beachten ist auch, dass eine Historiengröße von 1 bedeutet, dass Benutzer ihr Passwort nicht in ihr aktuelles Passwort ändern können. Das kann in bestimmten Situationen nützlich sein, aber ein Wert von 2 und mehr ist wahrscheinlich nützlicher."
+
+#: constraints/constraint_history.inc:22
+msgid "password"
+msgstr "Passwort"
+
+#: constraints/constraint_history.inc:22
+msgid "passwords"
+msgstr "Passwörter"
+
+#: constraints/constraint_length.inc:15
+msgid "Length"
+msgstr "Länge"
+
+#: constraints/constraint_length.inc:15
+msgid "Password must be longer than the specified minimum length."
+msgstr "Das Passwort muss länger als die angegebene minimale Länge sein."
+
+#: constraints/constraint_length.inc:22
+#: constraints/constraint_lowercase.inc:22
+#: constraints/constraint_uppercase.inc:22
+msgid "character"
+msgstr "zeichen"
+
+#: constraints/constraint_letter.inc:15
+msgid "Letter"
+msgstr "Buchstabe"
+
+#: constraints/constraint_letter.inc:15
+msgid "Password must contain the specified minimum number of letters."
+msgstr "Das Passwort muss mindestens die angegebene Anzahl Buchstaben enthalten."
+
+#: constraints/constraint_letter.inc:22
+msgid "letter"
+msgstr "Buchstabe"
+
+#: constraints/constraint_letter.inc:22
+msgid "letters"
+msgstr "Buchstaben"
+
+#: constraints/constraint_lowercase.inc:15
+msgid "Lowercase"
+msgstr "Kleinbuchstaben"
+
+#: constraints/constraint_lowercase.inc:15
+msgid "Password must contain the specified minimum number of lowercase letters."
+msgstr "Das Passwort muss die angegebene Mindestzahl von Kleinbuchstaben enthalten."
+
+#: constraints/constraint_punctuation.inc:15
+msgid "Punctuation"
+msgstr "Satzzeichen"
+
+#: constraints/constraint_punctuation.inc:15
+msgid "Password must contain the specified minimum number of punctuation (not whitespace or an alphanumeric) characters."
+msgstr "Das Passwort muss mindestens die angegebene Anzahl Satzzeichen (nicht ein festes Leerzeichen oder ein alphanumerisches Zeichen) enthalten."
+
+#: constraints/constraint_type.inc:15
+msgid "Type"
+msgstr "Art"
+
+#: constraints/constraint_type.inc:15
+msgid "Password must contain the specified minimum number of character types (lowercase, uppercase, digit or punctuation)."
+msgstr "Das Passwort muss mindestens die angegebene Anzahl Zeichenarten (Kleinschreibung, Großschreibung, Ziffer oder Satzzeichen) enthalten."
+
+#: constraints/constraint_type.inc:22
+msgid "type"
+msgstr "Art"
+
+#: constraints/constraint_type.inc:22
+msgid "types"
+msgstr "Arten"
+
+#: constraints/constraint_uppercase.inc:15
+msgid "Uppercase"
+msgstr "Großbuchstaben"
+
+#: constraints/constraint_uppercase.inc:15
+msgid "Password must contain the specified minimum number of uppercase letters."
+msgstr "Das Passwort muss die angegebene Mindestzahl von Großbuchstaben enthalten."
+
+#: constraints/constraint_username.inc:15
+msgid "Password must differ from the username. Put any positive number to enforce this policy."
+msgstr "Das Passwort muss sich vom Benutzernamen unterscheiden. Jede positive Zahl erwzingt diese Richtlinie."
+
+#: constraints/constraint_username.inc:22
+msgid "Password must differ from the username."
+msgstr "Das Passwort muss sich vom Benutzernamen unterscheiden."
+

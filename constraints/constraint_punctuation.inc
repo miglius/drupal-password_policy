@@ -26,10 +26,11 @@ function password_policy_constraint_punctuation_error($constraint) {
  * Password validation.
  */
 function password_policy_constraint_punctuation_validate($password, $constraint, $uid) {
-  $length = strlen($password);
+  $length = drupal_strlen($password);
   $num = 0;
   for ($i = 0; $i < $length; $i++) {
-    if (ctype_punct($password[$i])) { $num++; }
+    if (ctype_punct($password[$i]))
+      $num++;
   }
   return $num >= $constraint;
 }

@@ -63,7 +63,7 @@ function _password_policy_constraint_history_old_passwords($constraint, $uid) {
     // note that we specify a limit of the window size, but may not get that if the history isn't there.
     $result = db_query("SELECT pass FROM {password_policy_history} WHERE uid = %d ORDER BY created DESC LIMIT %d", $uid, $constraint);
     while ($row = db_fetch_array($result)) {
-      $pass[] = $row['pass']; 
+      $pass[] = $row['pass'];
     }
   }
   return $pass;

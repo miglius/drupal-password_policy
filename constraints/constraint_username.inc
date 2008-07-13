@@ -27,7 +27,7 @@ function password_policy_constraint_username_error($constraint) {
  */
 function password_policy_constraint_username_validate($password, $constraint, $uid) {
   $account = user_load(array('uid' => $uid));
-  return strtolower($account->name) != strtolower($password);
+  return drupal_strtolower($account->name) != drupal_strtolower($password);
 }
 
 /**

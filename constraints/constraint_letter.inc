@@ -26,10 +26,11 @@ function password_policy_constraint_letter_error($constraint) {
  * Password validation.
  */
 function password_policy_constraint_letter_validate($password, $constraint, $uid) {
-  $length = strlen($password);
+  $length = drupal_strlen($password);
   $num = 0;
   for ($i = 0; $i < $length; $i++) {
-    if (ctype_alpha($password[$i])) { $num++; }
+    if (ctype_alpha($password[$i]))
+      $num++;
   }
   return $num >= $constraint;
 }
