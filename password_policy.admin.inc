@@ -78,7 +78,7 @@ function password_policy_admin_settings() {
 function password_policy_admin_settings_submit($form, &$form_state) {
   $op = $form_state['clicked_button']['#value'];
   switch ($op) {
-    case "Save configuration":
+    case t('Save configuration'):
       variable_set('password_policy_admin', $form_state['values']['password_policy_admin']);
       variable_set('password_policy_begin', $form_state['values']['password_policy_begin']);
       variable_set('password_policy_block', $form_state['values']['password_policy_block']);
@@ -86,7 +86,7 @@ function password_policy_admin_settings_submit($form, &$form_state) {
       variable_set('password_policy_warning_body', $form_state['values']['password_policy_warning_body']);
       drupal_set_message(t('The configuration options have been saved.'));
       break;
-    case "Reset to defaults":
+    case t('Reset to defaults'):
       variable_del('password_policy_admin');
       variable_del('password_policy_begin');
       variable_del('password_policy_block');
