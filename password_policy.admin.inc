@@ -117,7 +117,7 @@ function password_policy_admin_list() {
     $form[$name]['edit'] = array('#value' => l(t('edit'), 'admin/settings/password_policy/'. $pid .'/edit'));
     $form[$name]['delete'] = array('#value' => l(t('delete'), 'admin/settings/password_policy/delete/'. $pid));
   }
-  $form['default'] = array('#type' => 'radios', '#options' => $options, '#default_value' => $default_pid);
+  $form['default'] = array('#type' => 'radios', '#options' => $options, '#default_value' => isset($default_pid) ? $default_pid : 0);
   $form['submit'] = array('#type' => 'submit', '#value' => t('Set default policy'));
   $form['clear'] = array('#type' => 'submit', '#value' => t('Clear default policy'));
   return $form;
