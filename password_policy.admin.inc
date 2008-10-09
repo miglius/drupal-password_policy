@@ -15,7 +15,7 @@
 function password_policy_admin_settings() {
   $form['expiration'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Expiration Settings'),
+    '#title' => t('Expiration settings'),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE
   );
@@ -36,6 +36,20 @@ function password_policy_admin_settings() {
     '#title' => t('Blocking expired accounts'),
     '#default_value' => PASSWORD_POLICY_BLOCK,
     '#options' => array('0' => t('Expired accounts are blocked. Only administrators can unblock them.'), '1' => t('The user with expired account is not blocked, but sent to a change password page. If the password is not changed, the account is blocked and the user cannot login again.')),
+  );
+
+  // Visibility
+  $form['visibility'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Visibility settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE
+  );
+  $form['visibility']['password_policy_show_restrictions'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show restrictions on password change page.'),
+    '#default_value' => PASSWORD_POLICY_SHOW_RESTRICTIONS,
+    '#description' => t('Should password restrictions be listed on the password change page. A javascript warning block will be shown anyways if ithe typed in password does not meet the restrictions.'),
   );
 
   // E-mail notification settings.
@@ -82,6 +96,7 @@ function password_policy_admin_settings_submit($form, &$form_state) {
       variable_set('password_policy_admin', $form_state['values']['password_policy_admin']);
       variable_set('password_policy_begin', $form_state['values']['password_policy_begin']);
       variable_set('password_policy_block', $form_state['values']['password_policy_block']);
+      variable_set('password_policy_show_restrictions', $form_state['values']['password_policy_show_restrictions']);
       variable_set('password_policy_warning_subject', $form_state['values']['password_policy_warning_subject']);
       variable_set('password_policy_warning_body', $form_state['values']['password_policy_warning_body']);
       drupal_set_message(t('The configuration options have been saved.'));
@@ -90,6 +105,7 @@ function password_policy_admin_settings_submit($form, &$form_state) {
       variable_del('password_policy_admin');
       variable_del('password_policy_begin');
       variable_del('password_policy_block');
+      variable_del('password_policy_show_restrictions');
       variable_del('password_policy_warning_subject');
       variable_del('password_policy_warning_body');
       drupal_set_message(t('The configuration options have been reset to their default values.'));
