@@ -20,7 +20,7 @@ function password_policy_password_tab(&$form_state, $account) {
   $form['submit'] = array('#type' => 'submit', '#value' => t('Change'));
   $form['#validate'] = array('password_policy_password_tab_validate');
   $form['#submit'] = array('password_policy_password_tab_submit');
-  password_policy_form_alter(&$form, array(), 'user_profile_form');
+  password_policy_form_alter($form, array(), 'user_profile_form');
   return $form;
 }
 
