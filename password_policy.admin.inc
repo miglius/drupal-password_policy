@@ -122,16 +122,15 @@ function password_policy_admin_list() {
   $result = db_query('SELECT pid, name, enabled, description, created FROM {password_policy}'. tablesort_sql($header));
   while ($row = db_fetch_array($result)) {
     $pid = $row['pid'];
-    $name = $row['name'];
     $options[$pid] = '';
     if ($row['enabled']) {
       $default_pid = $pid;
-      $form[$name]['created'] = array('#value' => format_date($row['created'], 'medium'));
+      $form[$pid]['created'] = array('#value' => format_date($row['created'], 'medium'));
     }
-    $form[$name]['pid'] = array('#value' => $pid);
-    $form[$name]['view'] = array('#value' => l(t('view'), 'admin/settings/password_policy/'. $pid));
-    $form[$name]['edit'] = array('#value' => l(t('edit'), 'admin/settings/password_policy/'. $pid .'/edit'));
-    $form[$name]['delete'] = array('#value' => l(t('delete'), 'admin/settings/password_policy/delete/'. $pid));
+    $form[$pid]['name'] = array('#value' => $row['name']);
+    $form[$pid]['view'] = array('#value' => l(t('view'), 'admin/settings/password_policy/'. $pid));
+    $form[$pid]['edit'] = array('#value' => l(t('edit'), 'admin/settings/password_policy/'. $pid .'/edit'));
+    $form[$pid]['delete'] = array('#value' => l(t('delete'), 'admin/settings/password_policy/delete/'. $pid));
   }
   $form['default'] = array('#type' => 'radios', '#options' => $options, '#default_value' => isset($default_pid) ? $default_pid : 0);
   $form['submit'] = array('#type' => 'submit', '#value' => t('Set default policy'));
@@ -295,7 +294,7 @@ function password_policy_admin_form_submit($form, &$form_state) {
   }
 
   // If we have an pid, update, else save.
-  if ($form_state['values']['pid']) {
+  if (isset($form_state['values']['pid'])) {
     db_query("UPDATE {password_policy} SET name = '%s', description = '%s', policy = '%s', expiration = %d, warning = '%s' WHERE pid = %d", $form_state['values']['name'], $form_state['values']['description'], serialize($policy), trim($form_state['values']['expiration']), str_replace(' ', '', $form_state['values']['warning']), $form_state['values']['pid']);
     drupal_set_message(t('Policy %name has been updated.', array('%name' => $form_state['values']['name'])));
     watchdog('password_policy', 'Policy %name updated.', array('%name' => $form_state['values']['name']), WATCHDOG_NOTICE, l(t('edit'), 'admin/settings/password_policy/'. $form_state['values']['pid'] .'/edit'));

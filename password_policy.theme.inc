@@ -16,17 +16,17 @@
  */
 function theme_password_policy_admin_list($form) {
   $rows = array();
-  foreach ($form as $name => $element) {
+  foreach ($form as $pid => $element) {
     if (isset($element['edit']) && is_array($element['edit'])) {
       $rows[] = array(
-        drupal_render($form['default'][$element['pid']['#value']]),
-        check_plain($name),
-        drupal_render($form[$name]['created']),
-        drupal_render($form[$name]['view']),
-        drupal_render($form[$name]['edit']),
-        drupal_render($form[$name]['delete'])
+        drupal_render($form['default'][$pid]),
+        check_plain($form[$pid]['name']['#value']),
+        drupal_render($form[$pid]['created']),
+        drupal_render($form[$pid]['view']),
+        drupal_render($form[$pid]['edit']),
+        drupal_render($form[$pid]['delete'])
       );
-      unset($form[$name]);
+      unset($form[$pid]);
     }
   }
   if (empty($rows)) {
