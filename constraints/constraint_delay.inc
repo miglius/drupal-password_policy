@@ -1,0 +1,40 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Password policy constraint callback to set a minimum delay between password changes.
+ *
+ * @link http://drupal.org/node/316765
+ * @author David Kent Norman (http://deekayen.net/)
+ */
+
+//////////////////////////////////////////////////////////////////////////////
+// Constraint API
+
+/**
+ * Description of the constraint.
+ */
+function password_policy_constraint_delay_description() {
+  return array('name' => t('Delay'), 'description' => t('Minimum number of hours between password changes.'));
+}
+
+/**
+ * Error message of the constraint.
+ */
+function password_policy_constraint_delay_error($constraint) {
+  return t('Passwords may only be changed every %numHours @charHours.', array('%numHours' => $constraint, '@charHours' => format_plural($constraint, t('hour'), t('hours'))));
+}
+
+/**
+ * Password validation.
+ */
+function password_policy_constraint_delay_validate($password, $constraint, $uid) {
+  $last_change = db_result(db_query_range("SELECT MAX(created) FROM {password_policy_users} WHERE uid = %d", $uid, 0, 1));
+  if (!empty($last_change)) {
+    // Constraint is set in hours, so it gets converted to seconds with *60*60.
+    return time() - ($constraint*60*60) > $last_change;
+  }
+  return TRUE;
+}
+

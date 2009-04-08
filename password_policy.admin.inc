@@ -119,6 +119,7 @@ function password_policy_admin_settings_submit($form, &$form_state) {
 function password_policy_admin_list() {
   $header = array(t('Default'), array('data' => t('Name'), 'field' => 'name', 'sort' => 'asc'), t('Enabled'), array('data' => t('Operations'), 'colspan' => 3));
   $form = array();
+  $options = array();
   $result = db_query('SELECT pid, name, enabled, description, created FROM {password_policy}'. tablesort_sql($header));
   while ($row = db_fetch_array($result)) {
     $pid = $row['pid'];
