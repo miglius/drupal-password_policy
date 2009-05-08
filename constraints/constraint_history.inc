@@ -19,7 +19,7 @@ function password_policy_constraint_history_description() {
  * Error message of the constraint.
  */
 function password_policy_constraint_history_error($constraint) {
-  return t('Password must not match %number last '. format_plural($constraint, t('password'), t('passwords')) .'.', array('%number' => $constraint));
+  return format_plural($constraint, 'Password must not match last password.', 'Password must not match last @count passwords.');
 }
 
 /**

@@ -19,7 +19,7 @@ function password_policy_constraint_complexity_description() {
  * Error message of the constraint.
  */
 function password_policy_constraint_complexity_error($constraint) {
-  return t('Password must contain a minimum of %number different '. format_plural($constraint, t('type'), t('types')) .' (lowercase, uppercase, digit or punctuation) of characters.', array('%number' => $constraint));
+  return format_plural($constraint, 'Password must contain at least one character of the following types: lowercase, uppercase, digit or punctuation.', 'Password must contain at least @count characters of different types (lowercase, uppercase, digit or punctuation).');
 }
 
 /**

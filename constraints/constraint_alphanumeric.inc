@@ -19,7 +19,7 @@ function password_policy_constraint_alphanumeric_description() {
  * Error message of the constraint.
  */
 function password_policy_constraint_alphanumeric_error($constraint) {
-  return t('Password must contain a minimum of %number alphanumeric (letters or numbers) '. format_plural($constraint, t('characters'), t('characters')) .'.', array('%number' => $constraint));
+  return format_plural($constraint, 'Password must contain at least one alphanumeric (letter or number) character.', 'Password must contain at least @count alphanumeric (letter or number) characters.');
 }
 
 /**

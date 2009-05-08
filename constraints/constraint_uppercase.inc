@@ -19,7 +19,7 @@ function password_policy_constraint_uppercase_description() {
  * Error message of the constraint.
  */
 function password_policy_constraint_uppercase_error($constraint) {
-  return t('Password must contain a minimum of %number uppercase '. format_plural($constraint, t('character'), t('characters')) .'.', array('%number' => $constraint));
+  return format_plural($constraint, 'Password must contain at least one uppercase character.', 'Password must contain at least @count uppercase characters.');
 }
 
 /**

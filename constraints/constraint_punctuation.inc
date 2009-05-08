@@ -19,7 +19,7 @@ function password_policy_constraint_punctuation_description() {
  * Error message of the constraint.
  */
 function password_policy_constraint_punctuation_error($constraint) {
-  return t('Password must contain a minimum of %number punctuation (not whitespace or an alphanumeric) '. format_plural($constraint, t('characters'), t('characters')) .'.', array('%number' => $constraint));
+  return format_plural($constraint, 'Password must contain at least one punctuation (not whitespace or an alphanumeric) character.', 'Password must contain at least @count punctuation (not whitespace or an alphanumeric) characters.');
 }
 
 /**

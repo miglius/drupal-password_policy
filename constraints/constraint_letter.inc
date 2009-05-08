@@ -19,7 +19,7 @@ function password_policy_constraint_letter_description() {
  * Error message of the constraint.
  */
 function password_policy_constraint_letter_error($constraint) {
-  return t('Password must contain a minimum of %number '. format_plural($constraint, t('letter'), t('letters')) .'.', array('%number' => $constraint));
+  return format_plural($constraint, 'Password must contain at least one letter.', 'Password must contain at least @count letters.');
 }
 
 /**

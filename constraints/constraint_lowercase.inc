@@ -19,7 +19,7 @@ function password_policy_constraint_lowercase_description() {
  * Error message of the constraint.
  */
 function password_policy_constraint_lowercase_error($constraint) {
-  return t('Password must contain a minimum of %number lowercase '. format_plural($constraint, t('character'), t('characters')) .'.', array('%number' => $constraint));
+  return format_plural($constraint, 'Password must contain at least one lowercase character.', 'Password must contain at least @count lowercase characters.');
 }
 
 /**

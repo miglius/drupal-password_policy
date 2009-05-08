@@ -19,7 +19,7 @@ function password_policy_constraint_length_description() {
  * Error message of the constraint.
  */
 function password_policy_constraint_length_error($constraint) {
-  return t('Password must be a minimum of %number '. format_plural($constraint, t('character'), t('characters')) .' in length.', array('%number' => $constraint));
+  return format_plural($constraint, 'Password must be at least one character in length.', 'Password must be at least @count characters in length.');
 }
 
 /**

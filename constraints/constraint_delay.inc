@@ -23,7 +23,7 @@ function password_policy_constraint_delay_description() {
  * Error message of the constraint.
  */
 function password_policy_constraint_delay_error($constraint) {
-  return t('Passwords may only be changed every %numHours @charHours.', array('%numHours' => $constraint, '@charHours' => format_plural($constraint, t('hour'), t('hours'))));
+  return format_plural($constraint, 'Password may only be changed in an hour from the last change.', 'Password may only be changed in @count hours from the last change.');
 }
 
 /**

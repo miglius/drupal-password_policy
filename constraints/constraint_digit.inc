@@ -19,7 +19,7 @@ function password_policy_constraint_digit_description() {
  * Error message of the constraint.
  */
 function password_policy_constraint_digit_error($constraint) {
-  return t('Password must contain a minimum of %number '. format_plural($constraint, t('digit'), t('digits')) .'.', array('%number' => $constraint));
+  return format_plural($constraint, 'Password must contain at least one digit.', 'Password must contain at least @count digits.');
 }
 
 /**
