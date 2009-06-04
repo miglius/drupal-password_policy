@@ -38,3 +38,6 @@ function password_policy_constraint_delay_validate($password, $constraint, $uid)
   return TRUE;
 }
 
+function password_policy_constraint_delay_js() {
+  return '';
+}

@@ -36,13 +36,13 @@ function password_policy_constraint_complexity_validate($password, $constraint, 
     if (ctype_upper($password[$i])) {
       $upper = 1;
     }
-    else if (ctype_lower($password[$i])) {
+    elseif (ctype_lower($password[$i])) {
       $lower = 1;
     }
-    else if (ctype_digit($password[$i])) {
+    elseif (ctype_digit($password[$i])) {
       $digit = 1;
     }
-    else if (ctype_punct($password[$i])) {
+    elseif (ctype_punct($password[$i])) {
       $punct = 1;
     }
   }
