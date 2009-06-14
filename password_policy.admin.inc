@@ -238,7 +238,7 @@ function password_policy_admin_form($form_state, $policy = NULL) {
 
   $form['constraints'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Constrains'),
+    '#title' => t('Constraints'),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE
   );
