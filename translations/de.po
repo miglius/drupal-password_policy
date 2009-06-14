@@ -218,7 +218,7 @@ msgid "The comma separated list of days. The warning about expiration of the pas
 msgstr "Eine durch Kommata getrennte Liste von Tagen. Die Warnung über das Ablaufen des Passwortes wird an diesen Tagen vor dem Ablaufen gesendet. Bei Leerlassen dieses Feldes werden keine Warnungen gesendet oder angezeigt."
 
 #: password_policy.admin.inc:241
-msgid "Constrains"
+msgid "Constraints"
 msgstr "Anforderungen"
 
 #: password_policy.admin.inc:261
