@@ -322,6 +322,7 @@ function password_policy_admin_delete($form_state, $pid) {
   }
   else {
     drupal_not_found();
+    exit;
   }
 }
 
