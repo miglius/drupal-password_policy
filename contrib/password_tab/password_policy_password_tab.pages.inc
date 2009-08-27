@@ -44,5 +44,10 @@ function password_policy_password_tab_submit($form, &$form_state) {
   user_module_invoke('submit', $form_state['values'], $account, 'account');
   user_save($account, array('pass' => $form_state['values']['pass']));
   drupal_set_message(t('Password has been changed.'));
+  if (PASSWORD_POLICY_PASSWORD_TAB_REDIRECT && !preg_match('/[?&]destination=/', $form['#action'])) {
+    global $user;
+    $redirect = parse_url(urldecode(strtr(PASSWORD_POLICY_PASSWORD_TAB_REDIRECT, array('%uid' => $user->uid))));
+    $form_state['redirect'] = array($redirect['path'], isset($redirect['query']) ? $redirect['query'] : NULL, isset($redirect['fragment']) ? $redirect['fragment'] : NULL);
+  }
 }
 
